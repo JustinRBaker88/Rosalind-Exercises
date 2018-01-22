@@ -1,20 +1,4 @@
-# Read a FASTA formatted text file containing DNA strings from Rosalind and
-# returns an array of corresponding DNA strings. Takes a file path as a parameter.
-def parse_fasta(fasta_path):
-    parsed = []
-    data = open(fasta_path,'r')
-    
-    temp_dna = ""
-    index = -1
-    for line in data:
-        if (line[0] == '>'):
-            parsed.append("")
-            index += 1
-        else:
-            parsed[index] += line.strip()
-    
-    data.close()
-    return parsed
+from BioUtil import Util
 
 # Reads through first string and takes all substrings (from longest to shortest)
 # in this string and checks if it is contained in all other strings.
@@ -38,5 +22,5 @@ def is_common_substring(search_substring, all_strings):
 
 path = "./data.txt"
 
-data = parse_fasta(path)
+data = Util.parse_fasta(path)
 print (long_substr(data))
