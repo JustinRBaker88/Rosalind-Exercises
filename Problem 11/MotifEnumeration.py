@@ -31,9 +31,33 @@ def matching_kmer(kmer, min_score, DNA):
         if (min_strand_score > min_score):
             return False         
     return True
-        
-dna = ["ATTTGGC", "TGCCTTA", "CGGTATC", "GAAAATT"]
-motifs = motif_enumeration(dna , 3, 1)
+
+def parse_data(path):
+    parsed = []
+    data = open(path,'r')
+    
+    index = 0
+    for line in data:
+        if (index == 0):
+            args = line.split()
+            parsed.append(int(args[0]))
+            parsed.append(int(args[1]))
+        else:
+            parsed.append(line.strip())
+        index +=1
+    
+    data.close()
+    return parsed
+
+path = "./data.txt"
+
+parse_results = parse_data(path)
+
+k = parse_results[0]
+d = parse_results[1] 
+dna = parse_results[2:]       
+
+motifs = motif_enumeration(dna , k, d)
 
 for x in motifs:
     print(x + " ", end="") 
