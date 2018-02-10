@@ -30,3 +30,11 @@ def get_dna_kmer(index, k):
         index = int(index/4)
         
     return "".join(kmer)
+
+def is_common_substring(search_substring, all_strings):
+    if len(search_substring) < 1:
+        return False
+    for i in range(len(all_strings)):
+        if search_substring not in all_strings[i]:
+            return False
+    return True

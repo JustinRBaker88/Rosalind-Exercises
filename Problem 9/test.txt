@@ -1,0 +1,4 @@
+>Rosalind_8993
+ATCTGATC
+>Rosalind_8993
+TGCATAC
