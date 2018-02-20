@@ -112,4 +112,7 @@ def get_blosum62():
     
 def get_blosum62_score(protein1, protein2):
     scoreMatrix = get_blosum62()
-    return scoreMatrix[protein1, protein2]
+    try:
+        return scoreMatrix[protein1, protein2]
+    except:
+        return scoreMatrix[protein2, protein1]
